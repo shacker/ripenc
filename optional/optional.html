@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>RipEnc: Optional Scripts</title>
+</head>
+<body bgcolor="#8FBC8F">
+<blockquote>
+<h1>RipEnc: Optional Scripts</h1>
+	
+There are three extra scripts in this folder, mostly for geeks and special purposes. They're not well honed and I offer no guarantees or warrantees. Be careful! To use a script, move it to ~/config/bin and type its name from Terminal.
+
+<h3>AddMP3Index</h3>
+
+This is the same script that gets run the first time you run RipEnc. Its purpose is to add indexes to a filesystem corresponding to the MP3 attributes in the FileTypes panel, so you can search that volume on arbitrary criteria.
+<P>
+Use this script if you have more than one BFS volume, such as one you might be using for MP3 storage. Open a Terminal, cd to your new MP3 volume, e.g.:
+
+<pre>cd /mp3</pre>
+
+and type AddMP3Index. The alert boxes will guide you. You may see some error messages if you try to add an index where you've already got one. 
+
+<h3>ProcessTracks</h3>
+
+This script is useful if you've got a lot of pre-existing MP3s and you haven't been religiously setting your MP3 attributes all along, or if you transfer your files to a non-attribute-savvy filesystem, then back to BeOS, and want your attributes back. <i>It will only work with files that already have ID3 tags.</i>
+<P>
+It works by finding a list of all MP3 files in a given directory structure, then making sure each one has the correct MIME type (audio/x-mpeg), then copying those files' ID3 tags to attributes and adding appropriate indexes to disk volumes if necessary. <tt>processtracks</tt> depends on the presence of <a href="http://www.bebits.com/app/395">id3attr</a> being  in your path. Edit the first line of <tt>processtracks</tt> before running it and make sure the path is the shortest path to an MP3 storage location.
+
+
+<h3>TestEnc</h3>
+
+TestEnc will generate a pile of MP3s of the same input file at different bitrates so you can run bitrate/quality comparisons. Current output bitrates are 64 96 128 160 192 256. You can change that by editing this line in the script:
+
+<pre>for i in 64 96 128 160 192 256; do</pre>
+<P>
+Run TestEnc from the working directory with the input filename as an argument, but leave off the .wav extenstion.  e.g. If you want to encode noseblow.wav, run:
+
+<pre>TestEnc noseblow</pre>
+
+If your input filename has spaces in it, remember to enclose the filename in 'strong quotes' on the command line. 
+
+</blockquote>
+</body>
+</html>

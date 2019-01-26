@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Troubleshooting RipEnc</title>
+</head>
+<body bgcolor="#FFFFFF">
+<blockquote>
+
+<h1>RipEnc: Troubleshooting</h1>
+
+
+<b>My CD /track names aren't being looked up properly.</b><BR>
+You probably don't have cddblinkd running in the background. This is absolutely essential to having a good experience with RipEnc. It should have been installed when you installed RipEnc, and added to your UserBootscript. If Team Monitor tells you it's not running, type "cddblinkd &" into a Terminal. You might get better lookup results from cddblinkd by having it query a different database. See the tip cdda-fs: <a href="http://www.betips.net/cgi-bin/chunga.pl?ID=tip433">Guarantee successful lookups</a> for more information.
+
+<P>
+<b>I get a lot of weird error messages on output</b> <BR>
+This can happen when the CD volume name or some of the track names are badly formed. It's very important that a CD be named:
+
+<pre>Artist Name - Album Name</pre>
+
+Sometimes a CD will come down from the compact disc databases with a name something like:
+
+<pre>The Coprolites - Long Buried - Greatest Hits 1971-1975</pre>
+
+Notice there are two sets of " - ". This makes it impossible for RipEnc to determine which portion of the name is the artist name and which portion is the album name, and RipEnc will generate errors. The fix is to simply rename the volume on the desktop. Something like:
+
+<pre>The Coprolites - Long Buried (Greatest Hits 1971-1975)</pre>
+
+will fix the problem (for a good time, look up "coprolite" in a dictionary :)
+
+<P>
+<b>I can't see everything on-screen at once.</b> <BR>
+Some of the RipEnc screens, such as the Genre picker, present a lot of information at once. You might want to make your default Terminal size larger. Enter the Genre picker on the main screen, resize the Terminal window so it all fits, and pull down Settings | Save As Defaults. Remember that you can page up in the Terminal by using Shift+PageUp.
+
+
+<P>
+<b>My MP3s take forever to encode.</b> <BR>
+The GoGo encoder is very fast. For a point of reference, my dual 333 with 128MBs and an external SCSI Plextor 8/20 is able to encode via RipEnc at 6x (six times faster than the song length). If encoding is dog slow, your CD-ROM drive may not support Digital Audio Extraction. Most modern drives do, but some older and some recent generic / crappy CD-ROM drives do not. If you have another drive, run the autodetect (option D) and use that drive instead. If you have only one CD-ROM drive, mess with the cdda-fs buffer and block settings. Double-click the mounted CD's icon and open the "settings" file in StyledEdit (Pe and Eddie won't be able to save the settings file -- you must use StyledEdit for this). Try decreasing the blocksize by half. Take it all the way down to 1 if necessary. You must unmount and remount the CD for the changes to take effect. Try decreasing the buffer size if necessary. Consider getting a better CD-ROM drive, and make sure it does DAE. See <a href="http://www.betips.net/cgi-bin/chunga.pl?ID=tip449">Notes on digital audio extraction</a> for more information.
+<P>
+Also.. make sure DMA is enabled in your machine's BIOS!
+
+<P>
+<b>I end up with blank MP3s.</b><br>
+Again, this is probably a DAE problem. See above. I've also seen some weird reports from users of some Western Digital hard drives. Try sending the output to another drive, if you have one.
+
+<P>
+<b>My CD-ROM drive doesn't get recognized.</b><BR>
+You probably have a DVD-ROM drive. Some DVD drives aren't recognized by the BeOS "play" command, which is what RipEnc uses to get the device paths. If this happens to you, get the device path manually by launching CDPlayer and right-click on its interface. Choose "Device" and you'll see your allowable CD-ROM devices. Quit RipEnc, open /boot/home/config/settings/ripencrc, and add the device path manually. You should be golden. RipEnc works fine with DVD-ROM drives -- it's just subject to BeOS' occassional inability to recognize them properly.
+
+
+</blockquote>
+</body>
+</html>

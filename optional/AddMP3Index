@@ -1,0 +1,25 @@
+#!/bin/sh
+
+OK=$(alert "Okay to add and/or modify the following indexes to your filesystem? If you don't understand this dialog, it's safe to click Yes. These indexes are useful not just for RipEnc, but for BeOS audio in general. Adding them will allow you to search for newly created MP3s by artist, title, year, etc. If previously created indexes of the same name are found, they will not be modified. Note: If you've previously installed RipEnc, you probably have the wrong kind of Audio:Year index. Clicking Yes gives RipEnc permission to remove that index and replace it with a fixed one." "No" "Yes")
+
+if [ "$OK" = "No" ]; then
+
+alert "Indexes were neither added nor modified. You can do this manually later with the mkindex command if you want. Be sure that your Audio:Year index is an integer, not a string!"
+
+else
+
+mkindex Audio:Album
+mkindex Audio:Artist
+mkindex Audio:Comment
+mkindex Audio:Genre
+mkindex Audio:Title
+
+# Check for old, faulty year index
+rmindex Audio:Year
+mkindex -t int Audio:Year  
+
+	alert "Five indexes added (if you didn't have them already), Audio:Year index improved"
+fi
+
+
+

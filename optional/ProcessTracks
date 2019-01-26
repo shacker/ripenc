@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Edit line below to match shortest path to all MP3s on new volume
+find /volume/path/to/mp3s -name *mp3 -print > /tmp/list3
+
+{
+while read ThisTrack; do
+	echo Processing "$ThisTrack"
+	settype -t audio/x-mpeg "$ThisTrack"
+	id3attr "$ThisTrack"
+done
+} < /tmp/list3

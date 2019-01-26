@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>RipEnc for BeOS</title>
+</head>
+<body bgcolor="#FFFFFF">
+<blockquote>
+
+<h1>RipEnc Quick Start / Installation</h1>
+
+
+<h3><font color="navy">Most of this only has to be done the first time you run RipEnc.</font></h3>
+
+Because RipEnc is a "front-end" script, it relies on other tools to do some its  work. However, almost everything you need is included in this distribution, and should have been installed by the RipEnc installer. For legal reasons, however, you'll need to download and install a command-line MP3 encoder separately.
+<P>
+<ol>
+<li>I recommend putting either or both the GoGo or LAME encoders in <tt>~/config/bin</tt> (if you don't do this, RipEnc will offer to download an encoder for you). Here are direct links, for reference:
+<P>
+ <a href="http://homepage1.nifty.com/herumi/gogo_e.html">GoGo binary</a> <BR>
+ <a href="http://www.bebits.com/app/522">GoGo source</a> <BR>
+ <a href="http://home.iae.nl/users/gertjan/be/">LAME binary</a> <BR>
+<a href="http://www.sulaco.org/mp3/"> LAME source</a><BR>
+<a href="http://www.mp3machine.com/software/BladeEnc_beos/">bladeenc binary</a><BR>
+<a href="http://www.bebits.com/app/1058">Vorbis tools</a> (to create .OGG rather than .MP3 files)
+<P>
+	<li>Insert an audio CD and mount it by right-clicking on the Desktop and choosing "Audio CD" from the Mount menu. Once mounted, wait for its name to change to the name of the album -- This means the CD has been looked up in a compact disc database.
+<P>
+	<li>Double-click the RipEnc launcher icon on the desktop.
+<P>	
+	<li>Use the Setup options to get configured. At the very least, press S to enter Setup and then D to detect your CD-ROM drive. Back at the main menu, press P to save your settings.
+</ol>
+
+See the <a href="usage.html">Usage</a> page if necessary.
+<P>
+<b>Note:</b> The RipEnc installer made sure you have appropriate Audio indexes on your installation volume's filesystem so you can run MP3 queries later. However, if you have multiple BFS volumes on your system, you'll want to index each one you intend to store MP3s on. If this applies to you, see the readme in the Optional Scripts folder.
+
+<P>
+You're good to go.
+
+<P>
+<HR>
+<P>
+
+<h3>Notes on cddblinkd</h3>
+
+cddblinkd is a daemon that runs in the background and detects when you've inserted an audio CD, then looks it up in an online compact disc database so you get accurate artist, album, and track names. The RipEnc installer installed a version of cddblinkd in <tt>~/config/bin</tt> and added it to your UserBootscript if necessary. 
+<P>
+If you find that a lot of your audio CDs aren't being looked up properly, read the tip:
+<P>
+<a href="http://www.betips.net/cgi-bin/chunga.pl?ID=tip433">cdda-fs: Guarantee successful lookups</a>
+<P>
+cddblinkd is a BeOS sample application, the original source to which is available at <a href="ftp://ftp.be.com/pub/samples/network_kit/cddblinkd.zip">ftp://ftp.be.com/pub/samples/network_kit/cddblinkd.zip</a>.
+<P>
+ See cddblinkd.license in the docs folder for distribution permissions.
+
+</blockquote>
+</body>
+</html>

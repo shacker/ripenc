@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>RipEnc for BeOS</title>
+</head>
+<body bgcolor="#FFFFFF">
+<blockquote>
+
+<h1>RipEnc: Revision History</h1>
+<b>2.6</b>
+Added support for compilation / various artist CDs (choose in Options).  RipEnc now includes a cddblinkd binary, and adds it to UserBootscript if necessary. All traces of manual track naming mode have been removed.
+<P>
+<b>2.5</b>
+Added support for Ogg/Vorbis output in addition to MP3 (choose in Options). Added support for LAME and bladeenc encoders in addition to GoGo (choose in Setup). Re-wrote space handling and directory moving routines with suggestions from Jon Watte. Added better handling for enhanced CDs (also Watte). Added option to launch MP3 folder template for customization of output folder style (access from Setup). Added option to use no filename extension (request of Luke Kanies). Added an additional filenaming convention.  Thorough documentation update. Miscellaneous bug fixes.
+<P>
+<b>2.4</b>
+Minor change: Checking for presence of MP3 indexes moved from installer to the script. This was done because the BeOS Installer app will duplicate everything on a volume except for the indexes, and I wanted to be able to create custom BeOS CDs with  RipEnc pre-installed and ready to run, complete with the all-important MP3 indexes.
+<P>
+<b>2.3</b> Added several additional playlist features: Can now optionally have each generated album saved to a playlist. More interestingly, you can now generate custom playlists by running era or genre queries right from the RipEnc interface. Query volume can be specified in Setup. Handles multiple playlist MIME types. Menu was getting too long, so made Setup, Options, and Quality into submenus.  Removed Query Templates, as it appears that a Tracker bug prevents query templates made on one machine from working properly on another machine. Manual mode further deprecated. Small updates to TestEnc optional script (now uses gogo rather than lame, doesn't use id3ren).
+<P>
+<b>2.2</b> Bug fixes in CD-ROM device detection for some dual IDE configurations. Includes MP3 query templates.
+<P>
+<b>2.1:</b> BeOS 5-only release. Does not install attributed audio/x-mpeg MIME type because BeOS now installs it for you. Docs don't tell you to install cdda-fs because BeOS now includes it.
+<P>
+<b>2.02:</b>  Fault tolerance -- now checks to see whether gogo, id3ren, and cddblinkd are  installed/running, and offers to download them if not. Hand-naming now under "Automatic/Manual". New "Open files in Tracker when done?" option.
+<P>
+<b>2.01:</b> Completely re-built menu -- much more user-friendly. New frequency output and encoding type options thanks to Jason Simpson (jason@xio.com). No longer using id3attr to copy ID3 tags into attributes because it forced attributes to a 32-character limit. Has been tested with <i>very</i> long artist, album, and song names. Better genre handling. Now properly indexing and creating the Audio:Year attribute as an integer rather than a string, so you can do really cool year queries. id3ren no longer gives confusing but bogus "File not found" error messages (recompiled from latest Unix sources).  Auto-detection of connected CD-ROM drives. Optional MP3 utility scripts added.
+<P>
+<b>2.0:</b> Much debugging, drastic rebuild of many components, start of 2.0 beta cycle.
+<P>
+<b>1.7:</b> Most components now packaged in a SoftwareValet installer, which also installs a customized audio/x-mpeg filetype and a collection of filesystem indices. 
+<P>
+<b>1.6:</b> Now uses GOGO rather than LAME (you can still use LAME by uncommenting the appropriate lines. Correspondingly, removed the fast mode option -- no longer necessary. The config file is now at <tt>~/config/settings/ripencrc</tt> (who needs those lame "dot" files, anyway?). New "Play when done" option. New manual track naming option. Added comment support. Folder template system changes slightly. New alert type options for telnet users. id3attr and id3ren now included in distribution.
+<P>
+<b>1.5:</b> Minor bug fixes. Now handling properly the odd CD with one-word Artist and Album names (like "Can - Delay"). Now properly handles situations where user tries to run the script without first mounting an audio CD.
+<P>
+<b>1.4:</b> Now handles CD and/or track names -- and hence volume and/or filenames -- containing multiple spaces or tabs (rassafrassin' CDDB...). Added a menu option for enabling lame's fast mode (lower quality).
+<P>
+<b>1.3:</b> Added MP3 folder template support. Added RipEnc launcher icon/script. Fixed bug affecting albums whose names ended with trailing spaces. Fixed bug affecting track names with (parentheses) in them.
+<P>
+<b>1.2:</b> Added support for id3attr so that ID3 tags are copied into appropriate BeOS attributes. Added VBR support. Thanks to Helge Philipp (helge.philipp@fortytwo.uni-oldenburg.de) for these.
+<P>
+<b>1.1:</b> Incorporated the Track attribute in cdda-fs to provided ordered (rather than alphabetical) track listings, which now correspond with the CD jacket. Takes a few seconds to build the track list this way, but the payoff is worth it. Added 9 possible naming conventions (if you'd like to see other naming conventions, just let me know). Re-did the menu structure for easier operation. Now optionally storing all preferences.
+<P>
+<b>1.0:</b> Rewritten from scratch to be 100% BeOS native. Now relies on cdda-fs rather than the "play" utility and is therefore now "ripless."
+<P>
+<b>0.6c:</b> Modified to allow ripping from multiple CD drives simultaneously.
+<P>
+<b>0.6b:</b> Added CDDB support.
+<P>
+<b>0.6a:</b> Initial port from the Linux version.
+
+
+</blockquote>
+</body>
+</html>

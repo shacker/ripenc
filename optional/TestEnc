@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# TestEnc
+
+# Quickie script to dump a single .wav file to a variety of
+# encoding bitrates for testing purposes
+# Scot Hacker, 8/99. Comments to: beos@birdhouse.org 
+
+# Run TestEnc from the working directory with the filename as an argument,
+# but leave off the .wav extenstion.  e.g. If you want to encode noseblow.wav, run:
+
+# TestEnc noseblow
+
+# If your input filename has spaces in it, remember to enclose the filename 
+# in 'strong quotes' on the command line. Note that id3ren spits out some 
+# bogus error messages about not being able to find the file, even though
+# it already has, and done its work successfully. 
+
+
+
+# Get input filename from command line
+FileName="$1"
+echo
+
+# Start a loop. Do each encoding specified on next line
+for i in 32 64 96 128 160 192 256 320; do
+	echo Creating "$FileName".$i.mp3
+	gogo -b $i "$FileName".wav "$FileName".$i.mp3
+	echo
+done
+
+

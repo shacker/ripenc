@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>RipEnc and PowerPC</title>
+</head>
+<body bgcolor="#FFFFFF">
+<blockquote>
+<h2>RipEnc and PowerPC</h2>
+	
+GOGO (the encoder used by default in RipEnc) does not work on PowerPC because it's highly optimized for x86 instruction sets. You'll need to download and install  the <a href="http://www.iae.nl/users/gertjan/be/">LAME MP3 encoder</a> (note that the latest version of lame is always available from <a href="http://www.sulaco.org/mp3/">www.sulaco.org/mp3</a>, and the standard distribution compiles on BeOS just fine). Unzip the lame archive wherever you'd like to store it permanently. If you later move the source directory, you'll have to re-make lame. Do not remove the source directory later. Launch a Terminal, cd to the source directory, (e.g.
+
+<pre>cd /boot/apps/audio/lame3.34</pre>
+
+and type:
+ 
+<pre>
+$ make 
+(lots of activity from the compiler) 
+$ cp lame ~/config/bin 
+</pre>
+
+
+In addition, this distribution comes with an x86 binary of id3ren. To get a PowerPC binary, you'll need to compile it yourself. Download  <a href="http://www.bebits.com/app/552/">id3ren</a>,  enter the src directory and type "make." To build on PowerPC, open the Makefile and change the line "cc=gcc" to "cc=cc." Make sure you choose "lame" in the Encoder section of Setup.
+<P>
+This distribution also comes with an x86 binary of cddblinkd. If you're running on PowerPC, <a href="ftp://ftp.be.com/pub/samples/network_kit/cddblinkd.zip">grab the source</a>, make, and move cddblinkd to <tt>~/config/bin</tt>.
+
+</blockquote>
+</body>
+</html>

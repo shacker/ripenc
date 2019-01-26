@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>About RipEnc</title>
+</head>
+<body bgcolor="#FFFFFF">
+<blockquote>
+
+<h1>About RipEnc</h1>
+<h3>"Ripless" MP3 encoding, ID3 tagging, and databasing</h3>
+
+ See <a href="revisions.html">Revision History</a> for evolution.
+</b>
+<P>
+RipEnc works in conjunction with Be's Audio CD filesystem driver (cdda-fs) and   cddblinkd daemon (for album and track name lookups), and the BeOS ports of  command-line MP3 tools  to let you encode selected tracks or an entire CD at once, <i>without having to rip the tracks first</i>.  ID3 tags are written to filesystem attributes for display in the Tracker (as shown), and can be queried through the system's Find panel. When you create MP3s with RipEnc, you get database-like control of your MP3 collection.
+<P>
+<center>
+<img src="../gfx/id3attrs.gif" width=682 height=274 alt="id3attrs"><BR>
+<i>MP3 files created with RipEnc, queryable attributes written to filesystem.<BR> Tracker adjusted so that actual filenames are not displayed. Sorted by year.</i>
+</center>
+
+
+<P>
+<blockquote>
+<font size="-1">This version of RipEnc includes an x86 binary of id3ren, to make installation easier. This is an open source application. If you would like access to the source, download the complete <a href="http://www.bebits.com/app/552/">id3ren</a> distribution.
+<P>
+This version of RipEnc includes an x86 binary of cddblinkd, to make installation easier. This is an open source application provided by Be, Inc.. If you would like access to the source, download the complete <a href="ftp://ftp.be.com/pub/samples/network_kit/cddblinkd.zip">cddblinkd</a> distribution.
+</font>
+</blockquote>
+
+<P>
+<HR>
+<P>
+
+<h3>Origins </h3>
+
+RipEnc was originally a bash shell script  from the Linux world which I adapted to work in BeOS (ask me for sources to the old version if you want to see them). However, that version was needlessly complex and carried a lot of baggage we  didn't need under BeOS.
+<P>
+More importantly, the script wasn't taking advantage of some the coolest BeOS tools available -- Marco Nelissen's cdda-fs and cddblink tools (these now belong to Be, Inc.). By utilizing cdda-fs, this script benefits over the old version in two ways:
+
+<ol>
+	<li>It's faster, because there's no need to rip prior to encoding.
+	<li>Encoding doesn't take up gobs of temporary disk space because there's no need to store giant .WAV files separately, as other tools do.
+</ol>
+
+RipEnc was gutted and re-written from scratch to get rid of all the unnecessary complexity and streamline things. As a result, RipEnc is now easier to use, less likely to fail, is faster, and is BeOS-native. The only code here leftover from the original Linux version is the basic concept for the menuing system. The code is well commented; feel free to rip it apart and do whatever you like with it.
+<P>
+<a href="../readme.html">Return to menu</a>
+</blockquote>
+</body>
+</html>
